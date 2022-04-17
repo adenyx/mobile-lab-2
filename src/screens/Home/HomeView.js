@@ -2,7 +2,9 @@ import React from 'react';
 import { View, ActivityIndicator, FlatList } from 'react-native';
 
 import RNStyles from '@tapston/react-native-styles';
+
 import { Product } from '../../components';
+import { screenHeight } from '../../styles';
 
 const HomeView = props => {
   return (
@@ -37,7 +39,7 @@ const styles = RNStyles.create({
     alignItems: 'center',
   },
   loadingContainer: {
-    flex: 1,
+    height: screenHeight - 140,
     justifyContent: 'center',
     alignItems: 'center',
   },

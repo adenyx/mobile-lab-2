@@ -1,5 +1,10 @@
 import React from 'react';
-import { View, FlatList, TouchableOpacity } from 'react-native';
+import {
+  View,
+  FlatList,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 
 import RNStyles from '@tapston/react-native-styles';
 
@@ -17,6 +22,16 @@ const SearchView = props => {
       <FlatList
         style={styles.listContainer}
         data={props.categories}
+        ListEmptyComponent={() => {
+          if (props.isLoading) {
+            return (
+              <View style={styles.loaderBlock}>
+                <ActivityIndicator />
+              </View>
+            );
+          }
+          return <View />;
+        }}
         ItemSeparatorComponent={() => <View style={styles.border} />}
         renderItem={({ item }) => (
           <TouchableOpacity
@@ -58,6 +73,9 @@ const styles = RNStyles.create({
     height: 2,
     borderTopWidth: 0.5,
     borderColor: colors.grayscale[4],
+  },
+  loaderBlock: {
+    padding: 8,
   },
 });
 

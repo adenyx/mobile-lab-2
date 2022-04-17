@@ -1,13 +1,24 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 
 import RNStyles from '@tapston/react-native-styles';
 import { Product } from '../../components';
+import { screenHeight } from '../../styles';
 
 const CategoriesView = props => {
   return (
     <View style={styles.container}>
       <FlatList
+        ListEmptyComponent={() => {
+          if (props.isLoading) {
+            return (
+              <View style={styles.loadingContainer}>
+                <ActivityIndicator />
+              </View>
+            );
+          }
+          return <View />;
+        }}
         style={styles.dataContainer}
         data={props.products}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
@@ -27,7 +38,7 @@ const styles = RNStyles.create({
     alignItems: 'center',
   },
   loadingContainer: {
-    flex: 1,
+    height: screenHeight - 140,
     justifyContent: 'center',
     alignItems: 'center',
   },
