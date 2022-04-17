@@ -15,9 +15,9 @@ import { colors } from '../styles';
  *  image: string
  * }} item - product item object
  */
-const Product = ({ item }) => {
+const Product = ({ item, onPress = () => {} }) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
           source={{ uri: item.image }}

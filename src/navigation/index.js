@@ -22,13 +22,17 @@ const TabStack = () => {
 const RootStackNav = createStackNavigator();
 const RootStack = () => {
   return (
-    <RootStackNav.Navigator initialRouteName="TabStack">
+    <RootStackNav.Navigator initialRouteName="Main">
       <RootStackNav.Screen
-        name="TabStack"
+        name="Main"
         options={{
           headerShown: false,
         }}
         component={TabStack}
+      />
+      <RootStackNav.Screen
+        name="ProductDetails"
+        component={screens.ProductDetails}
       />
     </RootStackNav.Navigator>
   );

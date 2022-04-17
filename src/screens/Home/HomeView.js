@@ -22,7 +22,9 @@ const HomeView = props => {
         data={props.products}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         keyExtractor={item => item.id}
-        renderItem={({ item }) => <Product item={item} />}
+        renderItem={({ item }) => (
+          <Product item={item} onPress={() => props.onItemPress(item)} />
+        )}
       />
     </View>
   );

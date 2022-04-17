@@ -10,6 +10,12 @@ const HomeContainer = props => {
   const products = useSelector(store => store.products.productsList);
   const isLoading = useSelector(store => store.products.loading);
 
+  const onItemPress = item => {
+    props.navigation.navigate('ProductDetails', {
+      productData: item,
+    });
+  };
+
   useEffect(() => {
     dispatch(ProductsActions.getAllProducts());
   }, []);
@@ -21,10 +27,10 @@ const HomeContainer = props => {
        */
       products={products}
       isLoading={isLoading}
-
       /**
        * Methods
        */
+      onItemPress={onItemPress}
     />
   );
 };
