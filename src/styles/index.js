@@ -11,6 +11,20 @@ export const colors = {
   backgroundColor: 'rgb(254, 249, 232)',
   white: '#FFFFFF',
   black: '#000000',
+  blue: '#2f81ed',
+
+  grayscale: {
+    0: '#FFFFFF',
+    0.5: '#F1F1F3',
+    1: '#E2E4E7',
+    2: '#C9CACF',
+    4: '#96989E',
+    6: '#494A4D',
+    8: '#303133',
+    8.5: '#130F26',
+    9: '#191919',
+    10: '#000000',
+  },
 
   error: {
     default: '#C03A39',
