@@ -12,7 +12,7 @@ const TabStack = () => {
     <Tab.Navigator tabBar={props => <TabBar {...props} />}>
       <Tab.Screen name="Home" component={screens.Home} />
       <Tab.Screen name="Search" component={screens.Home} />
-      <Tab.Screen name="Profile" component={screens.Home} />
+      <Tab.Screen name="Profile" component={screens.Profile} />
     </Tab.Navigator>
   );
 };
@@ -34,6 +34,7 @@ const RootStack = () => {
         name="ProductDetails"
         component={screens.ProductDetails}
       />
+      <RootStackNav.Screen name="AboutUs" component={screens.AboutUs} />
     </RootStackNav.Navigator>
   );
 };

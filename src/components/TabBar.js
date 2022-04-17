@@ -47,7 +47,7 @@ const styles = RNStyles.create({
     justifyContent: 'space-around',
     paddingVertical: 8,
     borderTopWidth: 1,
-    borderColor: colors.grayscale[4],
+    borderColor: colors.grayscale[2],
   },
   iconBlock: {
     alignItems: 'center',
