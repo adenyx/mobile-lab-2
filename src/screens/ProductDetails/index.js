@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import ProductDetailsView from './ProductDetailsView';
 import { convertCurrencies } from '../../core/utils';
+import { FavoriteButton } from '../../components';
 
 const ProductDetailsContainer = props => {
   const productData = props.route.params.productData;
@@ -15,6 +16,10 @@ const ProductDetailsContainer = props => {
     currentCurrency,
     currencies,
   );
+
+  props.navigation.setOptions({
+    headerRight: () => <FavoriteButton product={productData} />,
+  });
 
   return (
     <ProductDetailsView

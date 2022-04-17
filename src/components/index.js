@@ -6,6 +6,7 @@ import Product from './Product';
 import DescriptionRow from './DescriptionRow';
 import NavigationRow from './NavigationRow';
 import SearchInput from './SearchInput';
+import FavoriteButton from './FavoriteButton';
 
 export {
   Text,
@@ -16,4 +17,5 @@ export {
   DescriptionRow,
   NavigationRow,
   SearchInput,
+  FavoriteButton,
 };

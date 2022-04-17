@@ -3,6 +3,8 @@ import React from 'react';
 import ProfileView from './ProfileView';
 
 const ProfileContainer = props => {
+  const navigateToFavorites = () =>
+    props.navigation.navigate('FavoriteProducts');
   const navigateToSettings = () => props.navigation.navigate('Settings');
   const navigateToAbout = () => props.navigation.navigate('AboutUs');
   return (
@@ -14,6 +16,7 @@ const ProfileContainer = props => {
       /**
        * Methods
        */
+      navigateToFavorites={navigateToFavorites}
       navigateToSettings={navigateToSettings}
       navigateToAbout={navigateToAbout}
     />

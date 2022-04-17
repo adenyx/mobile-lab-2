@@ -7,14 +7,23 @@ import { NavigationRow } from '../../components';
 const ProfileView = props => {
   return (
     <View style={styles.container}>
-      <NavigationRow title="Settings" onPress={props.navigateToSettings} />
-      <NavigationRow title="About us" onPress={props.navigateToAbout} />
+      <View style={styles.row}>
+        <NavigationRow title="Favorites" onPress={props.navigateToFavorites} />
+      </View>
+      <View style={styles.row}>
+        <NavigationRow title="Settings" onPress={props.navigateToSettings} />
+      </View>
+      <View style={styles.row}>
+        <NavigationRow title="About us" onPress={props.navigateToAbout} />
+      </View>
     </View>
   );
 };
 
 const styles = RNStyles.create({
-  container: {},
+  row: {
+    marginBottom: 16,
+  },
 });
 
 export default ProfileView;
