@@ -6,6 +6,7 @@ import Home from '../assets/svg/home.svg';
 import Search from '../assets/svg/search.svg';
 import Profile from '../assets/svg/profile.svg';
 import ArrowRight from '../assets/svg/arrow-right.svg';
+import Clear from '../assets/svg/clear.svg';
 
 /**
  * @component Icon
@@ -35,6 +36,8 @@ const Icon = ({
       return <Profile width={iconWidth} height={iconHeight} color={color} />;
     case 'arrow-right':
       return <ArrowRight width={iconWidth} height={iconHeight} color={color} />;
+    case 'clear':
+      return <Clear width={iconWidth} height={iconHeight} color={color} />;
 
     default:
       return <Profile width={iconWidth} height={iconHeight} color={color} />;

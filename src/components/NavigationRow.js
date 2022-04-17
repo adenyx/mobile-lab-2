@@ -15,7 +15,12 @@ const NavigationRow = ({ title, onPress = () => {} }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       <Text size={18}>{title}</Text>
-      <Icon name="arrow-right" width={20} height={20} />
+      <Icon
+        name="arrow-right"
+        width={20}
+        height={20}
+        color={colors.grayscale[4]}
+      />
     </TouchableOpacity>
   );
 };
