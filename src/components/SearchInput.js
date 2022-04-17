@@ -9,13 +9,13 @@ import { colors } from '../styles';
 /**
  * SearchInput component
  * @prop {string} searchValue
- * @prop {function} setSearchValue
  * @prop {function} onChangeSearchText
+ * @prop {function} setFocus
  */
 const SearchInput = ({
   searchValue = '',
-  setSearchValue = () => {},
   onChangeSearchText = () => {},
+  setFocus = () => {},
 }) => {
   return (
     <View style={styles.searchContainer}>
@@ -25,12 +25,14 @@ const SearchInput = ({
         style={styles.searchTextInput}
         value={searchValue}
         autoFocus={false}
+        onFocus={() => setFocus(true)}
+        onBlur={() => setFocus(false)}
         onChangeText={onChangeSearchText}
         placeholder="Search"
         selectionColor={colors.grayscale[10]}
       />
       {searchValue.length ? (
-        <TouchableOpacity onPress={() => setSearchValue('')}>
+        <TouchableOpacity onPress={() => onChangeSearchText('')}>
           <Icon name="clear" color={colors.grayscale[0]} />
         </TouchableOpacity>
       ) : null}

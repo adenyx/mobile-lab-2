@@ -8,20 +8,33 @@ import {
 
 import RNStyles from '@tapston/react-native-styles';
 
-import { Icon, SearchInput, Text } from '../../components';
+import { Icon, Product, SearchInput, Text } from '../../components';
 import { colors } from '../../styles';
 
 const SearchView = props => {
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        (props.isFocused || props.searchValue.length) &&
+          styles.additionContainerStyle,
+      ]}>
       <SearchInput
+        setFocus={props.setFocused}
         searchValue={props.searchValue}
-        setSearchValue={props.setSearchValue}
         onChangeSearchText={props.onChangeSearchValue}
       />
       <FlatList
-        style={styles.listContainer}
-        data={props.categories}
+        style={
+          props.isFocused || props.searchValue.length
+            ? styles.productsListContainer
+            : styles.listContainer
+        }
+        data={
+          props.isFocused || props.searchValue.length
+            ? props.products
+            : props.categories
+        }
         ListEmptyComponent={() => {
           if (props.isLoading) {
             return (
@@ -32,20 +45,32 @@ const SearchView = props => {
           }
           return <View />;
         }}
-        ItemSeparatorComponent={() => <View style={styles.border} />}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => props.onCategoryPress(item)}
-            style={styles.rowContainer}>
-            <Text size={14}>{item}</Text>
-            <Icon
-              name="arrow-right"
-              width={16}
-              height={16}
-              color={colors.grayscale[4]}
-            />
-          </TouchableOpacity>
-        )}
+        ItemSeparatorComponent={() => {
+          if (props.isFocused || props.searchValue.length) {
+            return <View />;
+          }
+          return <View style={styles.border} />;
+        }}
+        renderItem={({ item }) => {
+          if (props.isFocused || props.searchValue.length) {
+            return (
+              <Product item={item} onPress={() => props.onItemPress(item)} />
+            );
+          }
+          return (
+            <TouchableOpacity
+              onPress={() => props.onCategoryPress(item)}
+              style={styles.rowContainer}>
+              <Text size={14}>{item}</Text>
+              <Icon
+                name="arrow-right"
+                width={16}
+                height={16}
+                color={colors.grayscale[4]}
+              />
+            </TouchableOpacity>
+          );
+        }}
       />
     </View>
   );
@@ -56,7 +81,14 @@ const styles = RNStyles.create({
     paddingHorizontal: 16,
     paddingTop: 16,
   },
+  additionContainerStyle: {
+    flex: 1,
+  },
 
+  productsListContainer: {
+    flex: 1,
+    marginTop: 16,
+  },
   listContainer: {
     marginTop: 16,
     borderRadius: 16,

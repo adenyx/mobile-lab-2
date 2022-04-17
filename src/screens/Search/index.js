@@ -14,9 +14,12 @@ const SearchContainer = props => {
 
   const [searchValue, setSearchValue] = useState('');
   const [categories, setCategories] = useState(categoriesList);
+  const [isFocused, setFocused] = useState(false);
+  const [productsList, setProductsList] = useState([]);
 
   const onChangeSearchValue = value => {
     setSearchValue(value);
+    setProductsList(products.filter(el => el.title.includes(value)));
   };
 
   const onCategoryPress = category =>
@@ -41,13 +44,16 @@ const SearchContainer = props => {
       /**
        * Options
        */
+      isFocused={isFocused}
       searchValue={searchValue}
       categories={categories}
       isLoading={isLoading}
+      products={productsList}
       /**
        * Methods
        */
       setSearchValue={setSearchValue}
+      setFocused={setFocused}
       onChangeSearchValue={onChangeSearchValue}
       onCategoryPress={onCategoryPress}
     />
