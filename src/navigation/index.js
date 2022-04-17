@@ -36,6 +36,7 @@ const RootStack = () => {
       />
       <RootStackNav.Screen name="AboutUs" component={screens.AboutUs} />
       <RootStackNav.Screen name="Categories" component={screens.Categories} />
+      <RootStackNav.Screen name="Settings" component={screens.Settings} />
     </RootStackNav.Navigator>
   );
 };

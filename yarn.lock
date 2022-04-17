@@ -6046,6 +6046,11 @@ react-native-codegen@^0.0.13:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
+react-native-dropdown-picker@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-dropdown-picker/-/react-native-dropdown-picker-5.4.0.tgz#8f5b16c44edf0e9aba152025c9c43683a0dbb32b"
+  integrity sha512-O5jlHb9+MRurVXNL3IrNK4f2HGODxYRoE1n+7MMA0NvrO0Mz7ICwrWZWC3qfbopTBy0ERjIWf+BRQiS2vFnaRQ==
+
 react-native-extended-stylesheet@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/react-native-extended-stylesheet/-/react-native-extended-stylesheet-0.12.0.tgz#ebacf22d78a8e2173bdef2a08cbf1acba4dc051f"

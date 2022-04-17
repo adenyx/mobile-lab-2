@@ -41,7 +41,7 @@ const getStyles = (size, textSize, textColor, textWeight) =>
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 8,
-      backgroundColor: colors.main,
+      backgroundColor: colors.blue,
     },
 
     value: {

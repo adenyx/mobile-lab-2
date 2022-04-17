@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import ProfileView from './ProfileView';
 
 const ProfileContainer = props => {
+  const navigateToSettings = () => props.navigation.navigate('Settings');
   const navigateToAbout = () => props.navigation.navigate('AboutUs');
   return (
     <ProfileView
@@ -13,6 +14,7 @@ const ProfileContainer = props => {
       /**
        * Methods
        */
+      navigateToSettings={navigateToSettings}
       navigateToAbout={navigateToAbout}
     />
   );

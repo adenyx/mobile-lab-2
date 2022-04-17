@@ -5,6 +5,8 @@ import RNStyles from '@tapston/react-native-styles';
 
 import { Text } from '.';
 import { colors } from '../styles';
+import { convertCurrencies } from '../core/utils';
+import { useSelector } from 'react-redux';
 
 /**
  * Product component
@@ -16,6 +18,9 @@ import { colors } from '../styles';
  * }} item - product item object
  */
 const Product = ({ item, onPress = () => {} }) => {
+  const currentCurrency = useSelector(store => store.user.userCurrency);
+  const currencies = useSelector(store => store.currencies.currenciesList);
+  const price = convertCurrencies(item.price, currentCurrency, currencies);
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.imageContainer}>
@@ -33,7 +38,7 @@ const Product = ({ item, onPress = () => {} }) => {
       </View>
       <View style={styles.costContainer}>
         <Text size={16} weight="600">
-          {item.price}$
+          {price} {currentCurrency.toUpperCase()}
         </Text>
       </View>
     </TouchableOpacity>

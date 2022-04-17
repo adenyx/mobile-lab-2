@@ -63,7 +63,7 @@ class ProductsActions {
   }
   static clearAllCategories() {
     return async dispatch => {
-      dispatch(clearCategories());
+      dispatch(clearAllCategories());
     };
   }
   static clearProductsInCategory() {

@@ -7,6 +7,7 @@ import { NavigationRow } from '../../components';
 const ProfileView = props => {
   return (
     <View style={styles.container}>
+      <NavigationRow title="Settings" onPress={props.navigateToSettings} />
       <NavigationRow title="About us" onPress={props.navigateToAbout} />
     </View>
   );

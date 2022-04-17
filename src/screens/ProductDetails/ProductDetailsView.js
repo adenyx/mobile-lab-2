@@ -22,7 +22,7 @@ const ProductDetailsView = props => {
         </Text>
         <View style={styles.border} />
         <Text size={16} color={colors.blue}>
-          Price: {props.product.price}$
+          Price: {props.price} {props.currentCurrency.toUpperCase()}
         </Text>
         <View style={styles.border} />
         <DescriptionRow title="Category" subtitle={props.product.category} />

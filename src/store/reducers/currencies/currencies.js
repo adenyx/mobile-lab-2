@@ -3,17 +3,17 @@
  */
 
 const initialState = {
-  userCurrency: 'usd',
+  currenciesList: [],
 };
 
-const EDIT_USER_CURRENCY = 'EDIT_USER_CURRENCY';
+const WRITE_CURRENCIES = 'WRITE_CURRENCIES';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case EDIT_USER_CURRENCY: {
+    case WRITE_CURRENCIES: {
       return {
         ...state,
-        userCurrency: action.payload,
+        currenciesList: action.payload,
       };
     }
     default:
@@ -21,8 +21,8 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export const editUserCurrency = payload => ({
-  type: EDIT_USER_CURRENCY,
+export const writeCurrencies = payload => ({
+  type: WRITE_CURRENCIES,
   payload,
 });
 
