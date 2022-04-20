@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, ScrollView } from 'react-native';
 
 import RNStyles from '@tapston/react-native-styles';
 
@@ -8,7 +8,7 @@ import { colors } from '../../styles';
 
 const ProductDetailsView = props => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
           source={{ uri: props.product.image }}
@@ -35,7 +35,7 @@ const ProductDetailsView = props => {
         <View style={styles.border} />
         <DescriptionRow title="Rating" subtitle={props.product.rating.rate} />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
