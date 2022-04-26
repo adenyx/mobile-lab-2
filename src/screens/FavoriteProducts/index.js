@@ -14,6 +14,10 @@ const FavoriteProductsContainer = props => {
     props.navigation.goBack();
   };
 
+  const onItemPress = item => {
+    props.navigation.navigate('ProductDetails', { productData: item });
+  };
+
   return (
     <FavoriteProductsView
       /**
@@ -24,6 +28,7 @@ const FavoriteProductsContainer = props => {
        * Methods
        */
       clearFavorites={clearFavorites}
+      onItemPress={onItemPress}
     />
   );
 };
